@@ -6,7 +6,7 @@ actions:
       runs_on: ubuntu-latest
 veracode_static_scan:
   push:
-    trigger: true
+    trigger: false
     branches_to_run:
       - '*'
     branches_to_exclude:
@@ -32,7 +32,7 @@ veracode_static_scan:
       - Veracode Static Scan
 veracode_sca_scan:
   push:
-    trigger: false
+    trigger: true
     branches_to_run:
       - '*'
     branches_to_exclude:
@@ -45,7 +45,7 @@ veracode_sca_scan:
     target_branch:
       - default_branch
   break_build_on_error: false
-  break_build_policy_findings: false
+  break_build_policy_findings: true
   error_message: Veracode static scan faced a problem.
   issues:
     trigger: false
