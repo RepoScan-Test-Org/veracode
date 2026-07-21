@@ -6,7 +6,7 @@ actions:
       runs_on: ubuntu-latest
 veracode_static_scan:
   push:
-    trigger: true
+    trigger: false
     branches_to_run:
       - '*'
     branches_to_exclude:
@@ -32,11 +32,13 @@ veracode_static_scan:
       - Veracode Static Scan
 veracode_sca_scan:
   push:
-    trigger: false
+    trigger: true
     branches_to_run:
       - '*'
     branches_to_exclude:
       - branch-1
+    breakBuildPolicyFindings: true
+    breakBuildOnError: true
   pull_request:
     trigger: false
     action:
